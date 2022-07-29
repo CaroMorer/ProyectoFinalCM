@@ -1,0 +1,16 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block contenido_que_cambia %}
+<form action="" method="POST">
+
+    {% csrf_token %}
+
+    {{form.as_p}}
+
+    <button type="submit"> Iniciar Sesión </button>
+    <button><a href="register"> si no tiene usuario, puede registrarse. </a></button>
+</form>
+
+    {% endblock %}

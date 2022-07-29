@@ -8,12 +8,14 @@
         <p>BIENVENIDO(A)</p>
         <h3 style = "color:darkorchid;"> Puedes buscar una camada, si deseas: </h3>
     
-
     <form action = '/AppCoder/buscar/' method = 'GET'>
         <input type = 'number' name = 'camada' id = 'camada'>
         <input type = 'submit' value = 'Buscar'> 
     </form>
     </div>
+    {% if request.user.is_authenticated %}
+    <button><a href="{%url 'logout' %}"> Salir</a></button>
+    {% endif %}
     {% if cursos %}
 
     
@@ -31,5 +33,7 @@
     {% else %}
         <p> No hay datos con esa descripcion</p>
     {% endif %}
+    <br>
+    <button><a href="{% url 'logout' %}">Salir de la sesión</a></button>
 
 {% endblock %}
