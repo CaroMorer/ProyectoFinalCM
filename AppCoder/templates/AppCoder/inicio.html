@@ -1,0 +1,35 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block contenido_que_cambia %}
+    <div style = "background-color: coral;">
+        <h1> CURSOS VARIOS PARA ESTUDIAR </h1>
+        <p>BIENVENIDO(A)</p>
+        <h3 style = "color:darkorchid;"> Puedes buscar una camada, si deseas: </h3>
+    
+
+    <form action = '/AppCoder/buscar/' method = 'GET'>
+        <input type = 'number' name = 'camada' id = 'camada'>
+        <input type = 'submit' value = 'Buscar'> 
+    </form>
+    </div>
+    {% if cursos %}
+
+    
+        <p> Estamos buscando el : {{camada}}</p>
+
+        <ul>    
+
+        {% for curso in cursos %}
+            <li> {{curso.nombre}} </li>
+            <li> {{curso.camada}} </li>
+        {% endfor %}
+
+        </ul>
+
+    {% else %}
+        <p> No hay datos con esa descripcion</p>
+    {% endif %}
+
+{% endblock %}

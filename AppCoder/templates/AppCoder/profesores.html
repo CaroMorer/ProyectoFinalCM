@@ -1,0 +1,25 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block contenido_que_cambia %}
+<div style = "background-color: rgb(80, 229, 255);">
+    <h1> Profesores </h1>
+    <h3 style = "color:darkorchid;"> Carga de datos de nuevos profesores</h3>
+</div>
+
+    {% if mi_formulario.errors %}
+    <p style=" color: red;"> Datos mal ingresados</p>
+    {% endif %}
+    <form action="" method="POST">{% csrf_token %}
+
+        <table>
+            {{mi_formulario.as_table}}
+        </table>
+
+        <input type="submit", value="Enviar">
+
+    </form>
+
+
+{% endblock %}
